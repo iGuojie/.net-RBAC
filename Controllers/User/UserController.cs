@@ -23,7 +23,7 @@ public class UserController:ControllerBase
         _dbContext = myDbContext;
     }
     
-    [HttpPost("/Login")]
+    [HttpPost("Login")]
     public JsonResult Login([FromBody] Dictionary<string, string> values)
     {
         var user = _dbContext.Users

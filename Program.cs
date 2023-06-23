@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Web_Api.AddAuthentication;
+using Web_Api.CustomerMiddleware;
 using Web_Api.Data;
 using Web_Api.Tool.Jwt;
 
@@ -14,45 +16,19 @@ builder.Services.AddSingleton<CacheHelper>();
 builder.Services.AddControllers();
 builder.Services.AddJwtAuthentication(builder.Configuration);
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 
 var app = builder.Build();
 app.UseMiddleware<ExceptionHandlerMiddleware>();
+app.UseSwagger();
+app.UseSwaggerUI();
 // app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 app.UseRouting();
+app.UseMiddleware<CaseSensitiveRoutingMiddleware>();
 app.UseAuthentication();
 app.UseMiddleware<MyAuthenrizationMiddleware>();
 app.MapControllers();
 app.Run();
-
-// using System;
-// using System.Linq;
-// using Microsoft.EntityFrameworkCore;
-// using Web_Api.Data;
-//
-// using MyDbContext context = new MyDbContext();
-// var users =
-//     (from product in context.Users
-//         select product)
-//     .Include(u => u.Roles)
-//     .ThenInclude(r => r.Resources);
-//     
-// foreach (var user in users)
-// {
-//     Console.WriteLine($"{user.Id}");
-//     Console.WriteLine($"{user.NickName}");
-//     Console.WriteLine($"{user.Password}");
-//     foreach (var role in user.Roles)
-//     {
-//         Console.WriteLine($"{role.Name}");
-//         Console.WriteLine("拥有权限如下");
-//         foreach (var resource in role.Resources)
-//         {
-//             Console.WriteLine($"{resource.Url}");
-//             
-//         }
-//     }
-//     Console.WriteLine(new string('-', 25));
-// }

@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -29,12 +30,13 @@ public class MyAuthenrizationMiddleware
     public async Task InvokeAsync(HttpContext context, MyDbContext dbContext)
     {
         var url = context.Request.Path.Value;
+        Console.WriteLine(url);
         var resources = dbContext.Resources.Include(r => r.Roles).ToList();
         var resource = resources.FirstOrDefault(r => r.Url == url);
         if (resource == null)
         {
-            throw new BusinessException(ResultCode.TokenAuthorizeFailed,
-                ResultTool.DescriptionsDictionary[ResultCode.TokenAuthorizeFailed]);
+            await _next(context);
+            return;
         }
         if (resource.Roles?.Count == 0)
         {
