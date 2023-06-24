@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Web_Api.Tool.EnumHelper;
 
-namespace Web_Api.Tool.JsonResultTool;
+namespace Web_Api.Common.JsonResultTool;
 
 public static class ResultTool
 {

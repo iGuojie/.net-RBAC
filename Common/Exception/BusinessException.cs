@@ -1,4 +1,4 @@
-using Web_Api.Tool.JsonResultTool;
+using Web_Api.Common.JsonResultTool;
 
 namespace Web_Api.Common.Exception;
 using System;

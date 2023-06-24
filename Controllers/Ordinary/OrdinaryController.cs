@@ -1,12 +1,9 @@
-using System;
-using System.Linq;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Web_Api.Tool.JsonResultTool;
-using JsonResult = Web_Api.Tool.JsonResultTool.JsonResult;
+using Web_Api.Common.JsonResultTool;
+using JsonResult = Web_Api.Common.JsonResultTool.JsonResult;
 
-namespace Web_Api.Controllers;
+namespace Web_Api.Controllers.Ordinary;
 
 [ApiController]
 [Route("[controller]")]

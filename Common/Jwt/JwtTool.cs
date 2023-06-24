@@ -6,7 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Web_Api.Tool.Jwt;
+namespace Web_Api.Common.Jwt;
 
 public class JwtTool
 {

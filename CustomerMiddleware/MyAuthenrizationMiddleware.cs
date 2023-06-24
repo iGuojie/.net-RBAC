@@ -8,23 +8,23 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Web_Api.Common.Exception;
-using Web_Api.Data;
-using Web_Api.Tool.JsonResultTool;
+using Web_Api.Common.JsonResultTool;
+using Web_Api.Date;
+
+namespace Web_Api.CustomerMiddleware;
 
 public class MyAuthenrizationMiddleware
 {
     private readonly RequestDelegate _next;
     private readonly IAuthorizationService _authorizationService;
     private readonly IAuthenticationSchemeProvider _schemes;
-    private readonly CacheHelper _cache;
 
     public MyAuthenrizationMiddleware(RequestDelegate next, IAuthorizationService authorizationService, 
-        IAuthenticationSchemeProvider schemes, CacheHelper cacheHelper)
+        IAuthenticationSchemeProvider schemes)
     {
         _next = next;
         _authorizationService = authorizationService;
         _schemes = schemes;
-        _cache = cacheHelper;
     }
 
     public async Task InvokeAsync(HttpContext context, MyDbContext dbContext)

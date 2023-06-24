@@ -1,14 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Web_Api.AddAuthentication;
+namespace Web_Api.Authentication;
 
 public static class ServiceCollectionExtensions
 {

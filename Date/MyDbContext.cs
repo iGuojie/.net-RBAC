@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Web_Api.Model;
 
-namespace Web_Api.Data;
+namespace Web_Api.Date;
 
 public class MyDbContext : DbContext
 {

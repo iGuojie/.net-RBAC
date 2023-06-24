@@ -4,7 +4,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.IdentityModel.Tokens;
 using Web_Api.Common.Exception;
-using Web_Api.Tool.JsonResultTool;
+using Web_Api.Common.JsonResultTool;
+
+namespace Web_Api.CustomerMiddleware;
 
 public class ExceptionHandlerMiddleware
 {
@@ -50,9 +52,7 @@ public class ExceptionHandlerMiddleware
             // result = ResultTool.Fail(ResultCode.Fail, exception.Message);
             result = ResultTool.Fail(ResultCode.Fail, "系统异常！");
         }
-/*
- * 
- */
+
         return context.Response.WriteAsJsonAsync(result);
     }
 

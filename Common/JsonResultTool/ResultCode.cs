@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace Web_Api.Tool.JsonResultTool;
+namespace Web_Api.Common.JsonResultTool;
 
 public enum ResultCode
 {

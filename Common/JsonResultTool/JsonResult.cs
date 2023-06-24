@@ -1,7 +1,6 @@
-namespace Web_Api.Tool.JsonResultTool;
-
 using System;
-using System.ComponentModel.DataAnnotations;
+
+namespace Web_Api.Common.JsonResultTool;
 
 public class JsonResult
 {
